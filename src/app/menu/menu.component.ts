@@ -13,7 +13,7 @@ export class MenuComponent {
   faUser = faUser;
   fas = faS;
 
-  userInfo?: any;
+  userInfo: any = null;
 
   constructor(public readonly google: GoogleApiService, private user_data: UserDataService) {
     google.userProfileSubject.subscribe(info => {
@@ -21,12 +21,18 @@ export class MenuComponent {
     })
   }
 
+  getToken() {
+    return this.google.getToken();
+  }
+
   getUserInfo(): void {
-    this.user_data.getUserData(this.google.getToken()).subscribe(
-      (data) => {
-        this.userInfo = data;
-      }
-    )
+    if (this.userInfo == null) {
+      this.user_data.getUserData(this.google.getToken()).subscribe(
+        (data) => {
+          this.userInfo = data;
+        }
+      )
+    }
   }
 
   obtenerImagen(): String {
