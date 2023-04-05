@@ -14,4 +14,9 @@ export class UserDataService {
     const headers = new HttpHeaders().set("authentication", token);
     return this.httpClient.get<any>("http://localhost:5000/api/user_data", {"headers": headers});
   }
+
+  public getRol(token: any): Observable<any> {
+    const headers = new HttpHeaders().set("authentication", token);
+    return this.httpClient.get<any>("http://localhost:5000/api/rol_usuario", {"headers": headers});
+  }
 }

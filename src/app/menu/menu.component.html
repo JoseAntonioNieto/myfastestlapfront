@@ -17,7 +17,7 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Reservas</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="rol_usuario == 'admin'">
           <a class="nav-link" href="#">Panel Admin</a>
         </li>
       </ul>

@@ -14,6 +14,7 @@ export class MenuComponent {
   fas = faS;
 
   userInfo: any = null;
+  rol_usuario: any = null;
 
   constructor(public readonly google: GoogleApiService, private user_data: UserDataService) {
     google.userProfileSubject.subscribe(info => {
@@ -30,6 +31,11 @@ export class MenuComponent {
       this.user_data.getUserData(this.google.getToken()).subscribe(
         (data) => {
           this.userInfo = data;
+        }
+      )
+      this.user_data.getRol(this.google.getToken()).subscribe(
+        (data) => {
+          this.rol_usuario = data.rol;
         }
       )
     }
