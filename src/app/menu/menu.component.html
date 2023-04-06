@@ -61,7 +61,11 @@
 		<button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
 	</div>
 	<div class="modal-body">
-		<p>Hello, World!</p>
+		<p class="text-center">Nombre: {{userInfo.given_name}}</p>
+    <p class="text-center">Apellidos: {{userInfo.family_name}}</p>
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <button class="btn btn-danger">Cerrar Sesión</button>
+    </div>
 	</div>
 	<div class="modal-footer">
 		<button type="button" class="btn btn-outline-dark" (click)="c('Close')">Cerrar</button>
