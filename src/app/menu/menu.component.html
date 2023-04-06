@@ -27,10 +27,43 @@
           <a (click)="this.google.login()">Iniciar Sesion</a>
         </div>
         <div *ngIf="isLoggedIn()">
-          <fa-icon [icon]="faUser"></fa-icon>
-          <p>{{obtenerNombre()}}</p>
+          <div ngbDropdown class="d-inline-block">
+            <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+              <fa-icon [icon]="faUser"></fa-icon>{{obtenerNombre()}}
+            </button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button ngbDropdownItem (click)="open(vehiculos)">Mis Vehiculos</button>
+              <button ngbDropdownItem (click)="open(datos)">Mis Datos</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </nav>
+
+<ng-template #vehiculos let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">MIS VEHICULOS</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<p>Hello, World!</p>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-dark" (click)="c('Close')">Cerrar</button>
+	</div>
+</ng-template>
+
+<ng-template #datos let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">MIS DATOS</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<p>Hello, World!</p>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-dark" (click)="c('Close')">Cerrar</button>
+	</div>
+</ng-template>

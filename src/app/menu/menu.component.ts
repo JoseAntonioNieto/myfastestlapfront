@@ -3,6 +3,7 @@ import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faS } from '@fortawesome/free-solid-svg-icons';
 import {GoogleApiService} from "../services/google-api.service";
 import { UserDataService } from '../services/menu/user-data.service';
+import { NgbDropdownModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-menu',
@@ -16,11 +17,15 @@ export class MenuComponent {
   userInfo: any = null;
   rol_usuario: any = null;
 
-  constructor(public readonly google: GoogleApiService, private user_data: UserDataService) {
+  constructor(public readonly google: GoogleApiService, private user_data: UserDataService, private modalService: NgbModal) {
     google.userProfileSubject.subscribe(info => {
       this.userInfo = info;
     })
   }
+
+  open(content: any) {
+		this.modalService.open(content);
+	}
 
   getToken() {
     return this.google.getToken();
