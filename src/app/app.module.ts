@@ -9,6 +9,7 @@ import { MenuComponent } from './menu/menu.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {OAuthModule} from "angular-oauth2-oidc";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {OAuthModule} from "angular-oauth2-oidc";
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    FormsModule,
     NgbModule,
     FontAwesomeModule,
     OAuthModule.forRoot()

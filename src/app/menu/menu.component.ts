@@ -3,7 +3,10 @@ import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faS } from '@fortawesome/free-solid-svg-icons';
 import {GoogleApiService} from "../services/google-api.service";
 import { UserDataService } from '../services/menu/user-data.service';
+import { FormsModule } from '@angular/forms';
 import { NgbDropdownModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Vehiculo } from '../clases/vehiculo';
+import { VehiculosService } from '../services/vehiculos/vehiculos.service';
 
 @Component({
   selector: 'app-menu',
@@ -16,11 +19,23 @@ export class MenuComponent {
 
   userInfo: any = null;
   rol_usuario: any = null;
+  public vehiculo: Vehiculo;
+  public vehiculos: any = [];
 
-  constructor(public readonly google: GoogleApiService, private user_data: UserDataService, private modalService: NgbModal) {
+  constructor(public readonly google: GoogleApiService,private vehiculoService: VehiculosService, private user_data: UserDataService, private modalService: NgbModal) {
+    this.vehiculo = new Vehiculo();
     google.userProfileSubject.subscribe(info => {
       this.userInfo = info;
     })
+  }
+
+  insertarVehiculo() {
+    this.vehiculoService.postVehiculos(this.google.getToken(), this.vehiculo.matricula, this.vehiculo.nombre_conductor, this.vehiculo.dni_titular, this.vehiculo.nombre_titular)
+    .subscribe(
+      (data) => {
+        this.vehiculos.push(data);
+      }
+    )
   }
 
   open(content: any) {
