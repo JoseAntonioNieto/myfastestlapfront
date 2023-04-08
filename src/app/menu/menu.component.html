@@ -34,7 +34,7 @@
               <fa-icon [icon]="faUser"></fa-icon>{{obtenerNombre()}}
             </button>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-              <button ngbDropdownItem (click)="open(vehiculos)">Mis Vehiculos</button>
+              <button ngbDropdownItem (click)="open(vehiculos); obtenerVehiculos()">Mis Vehiculos</button>
               <button ngbDropdownItem (click)="open(datos)">Mis Datos</button>
             </div>
           </div>
@@ -84,9 +84,20 @@
       </div>
       <button type="submit" class="btn btn-primary" [disabled]="!vehiculoForm.form.valid">Insertar vehiculo</button>
     </form>
-    <div>
-      <div>
-
+    <div *ngFor="let vehiculoArr of allVeh" class="container-fluid">
+      <div class="row mt-3 bordes rounded">
+        <div class="col">
+          <p>{{vehiculoArr.nombre_conductor}}</p>
+        </div>
+        <div class="col">
+          <p>{{vehiculoArr.dni_titular}}</p>
+        </div>
+        <div class="col">
+          <p>{{vehiculoArr.matricula}}</p>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-danger" (click)="eliminarVehiculo(vehiculoArr.matricula)">Eliminar</button>
+        </div>
       </div>
     </div>
   </div>

@@ -20,7 +20,7 @@ export class MenuComponent {
   userInfo: any = null;
   rol_usuario: any = null;
   public vehiculo: Vehiculo;
-  public vehiculos: any = [];
+  allVeh?:any = [];
 
   constructor(public readonly google: GoogleApiService,private vehiculoService: VehiculosService, private user_data: UserDataService, private modalService: NgbModal) {
     this.vehiculo = new Vehiculo();
@@ -29,11 +29,23 @@ export class MenuComponent {
     })
   }
 
+  eliminarVehiculo(matricula: String) {
+    console.log(matricula);
+  }
+
+  obtenerVehiculos() {
+    this.vehiculoService.getVehiculos(this.google.getToken()).subscribe(
+      (data) => {
+        this.allVeh = data;
+      }
+    );
+  }
+
   insertarVehiculo() {
     this.vehiculoService.postVehiculos(this.google.getToken(), this.vehiculo.matricula, this.vehiculo.nombre_conductor, this.vehiculo.dni_titular, this.vehiculo.nombre_titular)
     .subscribe(
       (data) => {
-        this.vehiculos.push(data);
+        this.allVeh.push(data);
       }
     )
   }
@@ -41,10 +53,6 @@ export class MenuComponent {
   open(content: any) {
 		this.modalService.open(content);
 	}
-
-  getToken() {
-    return this.google.getToken();
-  }
 
   getUserInfo(): void {
     if (this.userInfo == null) {
