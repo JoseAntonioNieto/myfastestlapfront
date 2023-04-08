@@ -24,4 +24,9 @@ export class VehiculosService {
     }
     return this.httpClient.post<any>("http://localhost:5000/api/vehiculos", body, {"headers": headers});
   }
+
+  public deleteVehiculos(token: any, matricula: String) {
+    const headers = new HttpHeaders().set("authentication", token);
+    return this.httpClient.delete<any>(`http://localhost:5000/api/vehiculos/${matricula}`, {"headers": headers});
+  }
 }

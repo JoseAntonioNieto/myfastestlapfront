@@ -29,8 +29,17 @@ export class MenuComponent {
     })
   }
 
-  eliminarVehiculo(matricula: String) {
-    console.log(matricula);
+  eliminarVehiculo(matricula: String, posicion: Number) {
+    let respuesta: any;
+    this.vehiculoService.deleteVehiculos(this.google.getToken(), matricula).subscribe(
+      (data) => {
+        respuesta =  data;
+      }
+    );
+
+    if (respuesta.eliminado == true) {
+      this.allVeh.splice(posicion, 1);
+    }
   }
 
   obtenerVehiculos() {
