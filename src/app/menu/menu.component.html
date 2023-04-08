@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-primary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
       <img src="https://www.autopista.es/uploads/s1/10/97/81/48/aston-martin-estrena-nuevo-logotipo.jpeg"
@@ -30,7 +30,7 @@
         </div>
         <div *ngIf="isLoggedIn()">
           <div ngbDropdown class="d-inline-block">
-            <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+            <button type="button" class="btn btn-outline-light" id="dropdownBasic1" ngbDropdownToggle>
               <fa-icon [icon]="faUser"></fa-icon>{{obtenerNombre()}}
             </button>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">

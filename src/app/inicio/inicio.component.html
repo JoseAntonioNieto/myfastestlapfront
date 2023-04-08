@@ -1,4 +1,18 @@
-<p>inicio works!</p>
+<div class="container">
+  <div class="row mt-3">
+    <div class="col">
+      <ngb-carousel #carousel [interval]="1000" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus"
+        (slide)="onSlide($event)">
+        <ng-template ngbSlide>
+          <img src="/assets/monza.jpg" class="img-fluid" alt="Monza">
+        </ng-template>
+        <ng-template ngbSlide>
+          <img src="/assets/nurburgring.jpg" class="img-fluid" alt="Monza">
+        </ng-template>
+      </ngb-carousel>
+    </div>
+  </div>
+</div>
 <!--
 <div *ngIf="isLoggedIn()">
   <p>{{getToken()}}</p>
