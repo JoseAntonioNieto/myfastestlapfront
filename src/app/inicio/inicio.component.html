@@ -12,6 +12,137 @@
       </ngb-carousel>
     </div>
   </div>
+  <div class="row mt-3">
+    <div class="col-12">
+      <h1 class="text-center">¿TE GUSTARIA CONDUCIR TU COCHE EN TU CIRCUITO PREFERIDO?</h1>
+    </div>
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
+      <p class="text-center">En nuestra web encontraras todos los circuitos de todo el mundo para que puedas reservar en sus jornadas de puertas abiertas y no quedarte sin entrar cuando vayas a este.</p>
+    </div>
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
+      <p class="text-center">A que estas esperando, reserva en un circuito y cumple tu sueño de dar vueltas en este con tu coche.</p>
+    </div>
+    <div class="col-md-2">
+    </div>
+  </div>
+  <div class="row mt-3">
+    <ngb-carousel #carousel [interval]="1000" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus"
+        (slide)="onSlide($event)">
+        <ng-template ngbSlide>
+          <div class="col">
+            <div class="row mx-1">
+              <div class="card col-md-4">
+                <img src="/assets/monza.jpg" class="card-img-top img-fluid" alt="Monza">
+                <div class="card-body">
+                  <h5 class="card-title text-center">MONZA</h5>
+                  <div class="row">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                      <a class="btn btn-primary" routerLink="/circuitos/monza">VER SESIONES</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card col-md-4">
+                <img src="/assets/nurburgring.jpg" class="card-img-top img-fluid" alt="Nurburgring">
+                <div class="card-body">
+                  <h5 class="card-title text-center">NURBURGRING</h5>
+                  <div class="row">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                      <a class="btn btn-primary" routerLink="/circuitos/nurburgring">VER SESIONES</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card col-md-4">
+                <img src="/assets/nurburgring.jpg" class="card-img-top img-fluid" alt="Nurburgring">
+                <div class="card-body">
+                  <h5 class="card-title text-center">NURBURGRING</h5>
+                  <div class="row">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                      <a class="btn btn-primary" routerLink="/circuitos/nurburgring">VER SESIONES</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="col">
+            <div class="row mx-1">
+              <div class="card col-md-4">
+                <img src="/assets/monza.jpg" class="card-img-top img-fluid" alt="Monza">
+                <div class="card-body">
+                  <h5 class="card-title text-center">MONZA</h5>
+                  <div class="row">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                      <a class="btn btn-primary" routerLink="/circuitos/monza">VER SESIONES</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card col-md-4">
+                <img src="/assets/nurburgring.jpg" class="card-img-top img-fluid" alt="Nurburgring">
+                <div class="card-body">
+                  <h5 class="card-title text-center">NURBURGRING</h5>
+                  <div class="row">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                      <a class="btn btn-primary" routerLink="/circuitos/nurburgring">VER SESIONES</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card col-md-4">
+                <img src="/assets/nurburgring.jpg" class="card-img-top img-fluid" alt="Nurburgring">
+                <div class="card-body">
+                  <h5 class="card-title text-center">NURBURGRING</h5>
+                  <div class="row">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                      <a class="btn btn-primary" routerLink="/circuitos/nurburgring">VER SESIONES</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+  </div>
+</div>
+<div class="container-fluid">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <div class="col-md-4 d-flex align-items-center">
+      <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+        <img src="https://www.autopista.es/uploads/s1/10/97/81/48/aston-martin-estrena-nuevo-logotipo.jpeg"
+        alt="Aston Martin" width="30" height="24">
+      </a>
+      <span class="mb-3 mb-md-0 text-body-secondary">© Jose Antonio Nieto Buiza 2023</span>
+    </div>
+
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      <li class="ms-3"><a class="text-body-secondary" href="#"><fa-icon [icon]="faTwitter"></fa-icon></a></li>
+      <li class="ms-3"><a class="text-body-secondary" href="#"><fa-icon [icon]="faInstagram"></fa-icon></a></li>
+      <li class="ms-3"><a class="text-body-secondary" href="#"><fa-icon [icon]="faFacebook"></fa-icon></a></li>
+    </ul>
+  </footer>
 </div>
 <!--
 <div *ngIf="isLoggedIn()">

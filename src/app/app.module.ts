@@ -10,12 +10,18 @@ import { InicioComponent } from './inicio/inicio.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {OAuthModule} from "angular-oauth2-oidc";
 import { FormsModule } from "@angular/forms";
+import { CircuitosComponent } from './circuitos/circuitos.component';
+import { MonzaComponent } from './circuitos/monza/monza.component';
+import { NurburgringComponent } from './circuitos/nurburgring/nurburgring.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    InicioComponent
+    InicioComponent,
+    CircuitosComponent,
+    MonzaComponent,
+    NurburgringComponent
   ],
   imports: [
     BrowserModule,
