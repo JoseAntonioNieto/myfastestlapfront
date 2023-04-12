@@ -13,6 +13,7 @@ import { FormsModule } from "@angular/forms";
 import { CircuitosComponent } from './circuitos/circuitos.component';
 import { MonzaComponent } from './circuitos/monza/monza.component';
 import { NurburgringComponent } from './circuitos/nurburgring/nurburgring.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NurburgringComponent } from './circuitos/nurburgring/nurburgring.compon
     InicioComponent,
     CircuitosComponent,
     MonzaComponent,
-    NurburgringComponent
+    NurburgringComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
