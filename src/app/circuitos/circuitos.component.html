@@ -1,1 +1,21 @@
-<p>circuitos works!</p>
+<h1 class="text-center">CIRCUITOS DISPONIBLES</h1>
+<div class="container">
+  <div class="row">
+    <div *ngFor="let circuito of circuitos" class="col-md-4 mt-3">
+      <div class="card">
+        <img [src]="'/assets/' + circuito.nombre.toLowerCase() + '.jpg'" class="card-img-top img-fluid"
+          alt="Nurburgring">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{circuito.nombre}}</h5>
+          <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+              <a class="btn btn-primary" routerLink="/circuitos/nurburgring">VER SESIONES</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
