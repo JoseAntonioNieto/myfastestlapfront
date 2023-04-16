@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MonzaComponent } from './monza.component';
+import { CircuitoComponent } from './circuito.component';
 
-describe('MonzaComponent', () => {
-  let component: MonzaComponent;
-  let fixture: ComponentFixture<MonzaComponent>;
+describe('CircuitoComponent', () => {
+  let component: CircuitoComponent;
+  let fixture: ComponentFixture<CircuitoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MonzaComponent ]
+      declarations: [ CircuitoComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MonzaComponent);
+    fixture = TestBed.createComponent(CircuitoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

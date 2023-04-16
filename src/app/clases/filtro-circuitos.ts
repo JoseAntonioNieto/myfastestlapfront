@@ -4,7 +4,7 @@ export class FiltroCircuitos {
   public nombre: string;
 
   constructor() {
-    this.pagina = 2;
+    this.pagina = 1;
     this.pais = "";
     this.nombre = "";
   }

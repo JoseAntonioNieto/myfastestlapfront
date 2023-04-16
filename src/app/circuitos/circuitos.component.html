@@ -1,6 +1,33 @@
 <h1 class="text-center">CIRCUITOS DISPONIBLES</h1>
 <div class="container">
   <div class="row">
+    <div class="col">
+      <form (ngSubmit)="aplicarFiltros()" #filtrosForm="ngForm">
+        <div class="row">
+          <div class="col-md-2">
+            <div class="mb-3">
+              <input type="text" class="form-control" id="nombreCircuito" [(ngModel)]="filtro.nombre" name="nombreCircuito"
+                #nombreCircuito="ngModel" placeholder="Nombre">
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="mb-3">
+              <select class="form-select" id="matricula" [(ngModel)]="filtro.pais" name="pais"
+                #pais="ngModel">
+                <option value="">Selecciona un país</option>
+                <option value="ESP">España</option>
+                <option value="IT">Italia</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <button type="submit" class="btn btn-primary" [disabled]="!filtrosForm.form.valid">Aplicar Filtros</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row">
     <div *ngFor="let circuito of circuitos" class="col-md-4 mt-3">
       <div class="card">
         <img [src]="'/assets/' + circuito.nombre.toLowerCase() + '.jpg'" class="card-img-top img-fluid"
@@ -11,11 +38,23 @@
             <div class="col-md-4">
             </div>
             <div class="col-md-4">
-              <a class="btn btn-primary" routerLink="/circuitos/nurburgring">VER SESIONES</a>
+              <a class="btn btn-primary" [routerLink]="['/circuito', circuito.id_circuito]">VER SESIONES</a>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-4"></div>
+    <div class="col-md-1">
+      <fa-icon [icon]="arrowLeft" (click)="paginaAnterior()"></fa-icon>
+    </div>
+    <div class="col-md-2">
+      <p class="text-center">{{filtro.pagina}} - {{totalPaginas}}</p>
+    </div>
+    <div class="col-md-1">
+      <fa-icon [icon]="arrowRight" (click)="paginaSiguiente()"></fa-icon>
     </div>
   </div>
 </div>
