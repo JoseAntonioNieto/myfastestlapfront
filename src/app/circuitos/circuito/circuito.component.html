@@ -1,1 +1,45 @@
-<p>Id: {{id}}</p>
+<div class="container">
+  <div class="row">
+    <h1 class="text-center">{{reservas[0].nombreCircuito}}</h1>
+  </div>
+  <div class="row">
+    <img [src]="'/assets/' + reservas[0].nombreCircuito.toLowerCase() + '.jpg'" class="img-fluid" [alt]="reservas[0].nombreCircuito" >
+  </div>
+  <div class="row">
+    <h2 class="text-center">RESERVAS DISPONIBLES</h2>
+  </div>
+  <ngb-alert type="success" *ngIf="reserva.realizada == 'si'">Reserva realizada</ngb-alert>
+  <ngb-alert type="danger" *ngIf="reserva.realizada == 'no'">El usuario ya ha reservado o el vehiculo ya se encuentra en la reserva</ngb-alert>
+  <div class="row" *ngFor="let reserva of reservas[1]">
+    <div class="col-12 mt-3">
+      <div class="row">
+        <div class="col-md-2">
+          <p>{{reserva.titulo}}</p>
+        </div>
+        <div class="col-md-2">
+          <p>{{reserva.fecha}}</p>
+        </div>
+        <div class="col-md-2">
+          <p>{{reserva.hora_inicio}}</p>
+        </div>
+        <div class="col-md-2">
+          <p>{{reserva.hora_fin}}</p>
+        </div>
+        <div class="col-md-4">
+          <form class="row g-3">
+            <div class="col-md-6">
+              <select name="vehiculos" id="vehiculos" class="form-select" #maticula>
+                  <option *ngFor="let vehiculo of vehiculosReserva" [value]="vehiculo.matricula">{{vehiculo.matricula}}</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <button class="btn btn-primary" (click)="realizarReserva(reserva.id_reserva, maticula.value)">RESERVAR</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

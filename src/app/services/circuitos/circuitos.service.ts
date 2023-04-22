@@ -9,12 +9,16 @@ export class CircuitosService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public getVehiculos(pagina: number, pais?: string, nombre?: string): Observable<any> {
+  public getCircuitos(pagina: number, pais?: string, nombre?: string): Observable<any> {
     const body = {
       pagina: pagina,
       pais: pais,
       nombre: nombre
     }
     return this.httpClient.post<any>("http://localhost:5000/api/getCircuitos", body);
+  }
+
+  public getCircuito(idCircuito: number): Observable<any> {
+    return this.httpClient.get<any>(`http://localhost:5000/api/circuito/${idCircuito}`);
   }
 }

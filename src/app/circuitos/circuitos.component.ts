@@ -23,7 +23,7 @@ export class CircuitosComponent implements OnInit {
   }
 
   obtenerCircuitos() {
-    this.servicioCircuitos.getVehiculos(this.filtro.pagina, this.filtro.pais, this.filtro.nombre).subscribe(
+    this.servicioCircuitos.getCircuitos(this.filtro.pagina, this.filtro.pais, this.filtro.nombre).subscribe(
       (data) => {
         this.circuitos = data[0];
         this.totalPaginas =  Math.trunc(data[1].cantidadCircuitos / 9) + 1;
@@ -33,7 +33,7 @@ export class CircuitosComponent implements OnInit {
 
   aplicarFiltros() {
     this.filtro.pagina = 1;
-    this.servicioCircuitos.getVehiculos(this.filtro.pagina, this.filtro.pais, this.filtro.nombre).subscribe(
+    this.servicioCircuitos.getCircuitos(this.filtro.pagina, this.filtro.pais, this.filtro.nombre).subscribe(
       (data) => {
         this.circuitos = data[0];
         this.totalPaginas =  Math.trunc(data[1].cantidadCircuitos / 9) + 1;
@@ -44,7 +44,7 @@ export class CircuitosComponent implements OnInit {
   paginaAnterior() {
     if (this.filtro.pagina != 1) {
       this.filtro.pagina = this.filtro.pagina - 1;
-      this.servicioCircuitos.getVehiculos(this.filtro.pagina, this.filtro.pais, this.filtro.nombre).subscribe(
+      this.servicioCircuitos.getCircuitos(this.filtro.pagina, this.filtro.pais, this.filtro.nombre).subscribe(
         (data) => {
           this.circuitos = data[0];
           this.totalPaginas =  Math.trunc(data[1].cantidadCircuitos / 9) + 1;
@@ -56,7 +56,7 @@ export class CircuitosComponent implements OnInit {
   paginaSiguiente() {
     if (this.filtro.pagina < this.totalPaginas) {
       this.filtro.pagina = this.filtro.pagina + 1;
-      this.servicioCircuitos.getVehiculos(this.filtro.pagina, this.filtro.pais, this.filtro.nombre).subscribe(
+      this.servicioCircuitos.getCircuitos(this.filtro.pagina, this.filtro.pais, this.filtro.nombre).subscribe(
         (data) => {
           this.circuitos = data[0];
           this.totalPaginas =  Math.trunc(data[1].cantidadCircuitos / 9) + 1;
