@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { AuthConfig, OAuthService, UserInfo } from 'angular-oauth2-oidc';
 import { Subject } from 'rxjs';
+import { enviroment } from '../enviroment/enviroment';
 
 const oAuthConfig: AuthConfig = {
   issuer: 'https://accounts.google.com',
   strictDiscoveryDocumentValidation: false,
   redirectUri: window.location.origin,
-  clientId: '626104102087-raim7uq02tefr5djn5sppq38ka3ksihr.apps.googleusercontent.com',
+  clientId: enviroment.google_client_id,
   scope: 'openid profile'
 }
 
