@@ -14,6 +14,7 @@ import { CircuitosComponent } from './circuitos/circuitos.component';
 import { FooterComponent } from './footer/footer.component';
 import { PickerModule } from "@ctrl/ngx-emoji-mart";
 import { CircuitoComponent } from './circuitos/circuito/circuito.component';
+import { MisReservasComponent } from './mis-reservas/mis-reservas.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CircuitoComponent } from './circuitos/circuito/circuito.component';
     InicioComponent,
     CircuitosComponent,
     FooterComponent,
-    CircuitoComponent
+    CircuitoComponent,
+    MisReservasComponent
   ],
   imports: [
     BrowserModule,

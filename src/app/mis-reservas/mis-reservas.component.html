@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <h1 class="text-center">MIS RESERVAS</h1>
+  </div>
+  <div class="row">
+    <div class="card col-md-4 mt-3" *ngFor="let reserva of reservas; index as i">
+      <img class="card-img-top" [src]="'/assets/' + reserva[1].circuito.toLowerCase() + '.jpg'" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title text-center">{{reserva[1].circuito.toUpperCase()}}</h5>
+        <div class="row">
+          <div class="col-md-6 text-center">
+            <p>{{reserva[0].fecha}}</p>
+          </div>
+          <div class="col-md-6 text-center">
+            <p>{{reserva[0].hora_inicio}}-{{reserva[0].hora_fin}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-3">
+            <a class="btn btn-danger" (click)="eliminarReserva(reserva[0].id_reserva, i)">ELIMINAR</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
