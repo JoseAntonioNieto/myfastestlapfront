@@ -15,6 +15,7 @@ import { FooterComponent } from './footer/footer.component';
 import { PickerModule } from "@ctrl/ngx-emoji-mart";
 import { CircuitoComponent } from './circuitos/circuito/circuito.component';
 import { MisReservasComponent } from './mis-reservas/mis-reservas.component';
+import { PanelAdminComponent } from './panel-admin/panel-admin.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MisReservasComponent } from './mis-reservas/mis-reservas.component';
     CircuitosComponent,
     FooterComponent,
     CircuitoComponent,
-    MisReservasComponent
+    MisReservasComponent,
+    PanelAdminComponent
   ],
   imports: [
     BrowserModule,

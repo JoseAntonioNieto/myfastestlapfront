@@ -21,4 +21,9 @@ export class CircuitosService {
   public getCircuito(idCircuito: number): Observable<any> {
     return this.httpClient.get<any>(`http://localhost:5000/api/circuito/${idCircuito}`);
   }
+
+  public getCircuitosUsuario(token: string) {
+    const headers = new HttpHeaders().set("authentication", token);
+    return this.httpClient.get<any>("http://localhost:5000/api/circuitosUsuario", {"headers": headers});
+  }
 }

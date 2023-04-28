@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1 class="text-center">{{circuitoActual.nombre.toUpperCase()}}</h1>
+    </div>
+    <div class="col-md-6">
+      <select class="form-select mt-1" name="circuito" id="circuito" #circuitoSel
+        (change)="cambiarCircuito(circuitoSel.value)">
+        <option *ngFor="let circuito of circuitos; index as i" [value]="i">{{circuito.nombre}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <img [src]="'/assets/' + circuitoActual.nombre.toLowerCase() + '.jpg'" class="img-fluid"
+        [alt]="circuitoActual.nombre">
+    </div>
+  </div>
+  <form class="row mt-3" #sesionForm="ngForm" (ngSubmit)="insertarSesion()">
+    <div class="col-md-6">
+      <label for="nombre_sesion" class="form-label">Nombre de la sesion</label>
+      <input type="text" class="form-control" id="nombre_sesion" [(ngModel)]="circuitoInsertar.nombre"
+        name="nombre_sesion" #nombre_sesion="ngModel" required>
+        <div *ngIf="nombre_sesion.invalid && nombre_sesion.dirty">
+          <p class="form-text" *ngIf="nombre_sesion.errors?.['required']">Campo requerido</p>
+        </div>
+    </div>
+    <div class="col-md-6">
+      <label for="fecha" class="form-label">Fecha</label>
+      <input type="date" class="form-control" id="fecha" [(ngModel)]="circuitoInsertar.fecha"
+        name="fecha" #fecha="ngModel" required>
+        <div *ngIf="fecha.invalid && fecha.dirty">
+          <p class="form-text" *ngIf="fecha.errors?.['required']">Campo requerido</p>
+        </div>
+    </div>
+    <div class="col-md-6">
+      <label for="hora_inicio" class="form-label">Hora de inicio</label>
+      <input type="time" class="form-control" id="hora_inicio" [(ngModel)]="circuitoInsertar.horaInicio"
+        name="hora_inicio" #hora_inicio="ngModel" required>
+        <div *ngIf="hora_inicio.invalid && hora_inicio.dirty">
+          <p class="form-text" *ngIf="hora_inicio.errors?.['required']">Campo requerido</p>
+        </div>
+    </div>
+    <div class="col-md-6">
+      <label for="hora_fin" class="form-label">Hora de fin</label>
+      <input type="time" class="form-control" id="hora_fin" [(ngModel)]="circuitoInsertar.horaFin"
+        name="hora_fin" #hora_fin="ngModel" required>
+        <div *ngIf="hora_fin.invalid && hora_fin.dirty">
+          <p class="form-text" *ngIf="hora_fin.errors?.['required']">Campo requerido</p>
+        </div>
+    </div>
+    <div class="col">
+      <button class="btn btn-primary" [disabled]="!sesionForm.form.valid">INSERTAR SESION</button>
+    </div>
+  </form>
+</div>

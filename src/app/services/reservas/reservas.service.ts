@@ -21,4 +21,16 @@ export class ReservasService {
     }
     return this.httpClient.post<any>("http://localhost:5000/api/usuario/reservas", body, {"headers": headers});
   }
+
+  public newReserva(token: string, idCircuito: number, nombre: string, fecha: string, horaInicio: string, horaFin: string): Observable<any> {
+    const headers = new HttpHeaders().set("authentication", token);
+    const body = {
+      id_circuito: idCircuito,
+      titulo: nombre,
+      fecha: fecha,
+      hora_inicio: horaInicio,
+      hora_fin: horaFin,
+    }
+    return this.httpClient.post<any>("http://localhost:5000/api/reservas", body, {"headers": headers});
+  }
 }
