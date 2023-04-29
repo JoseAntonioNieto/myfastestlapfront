@@ -13,10 +13,17 @@ export class PanelAdminComponent implements OnInit {
   circuitos: any;
   circuitoActual: any;
   circuitoInsertar: Sesion;
+  reservas: any;
 
   constructor(public readonly google: GoogleApiService, private circutoService: CircuitosService, private reservasService: ReservasService) {
     this.circuitoInsertar = new Sesion();
     google.userProfileSubject.subscribe()
+  }
+
+  obtenerReseras() {
+    this.reservasService.getReservas(this.circuitoActual.id_circuito).subscribe(data => {
+      this.reservas = data;
+    });
   }
 
   obtenerCircuitos() {
@@ -24,6 +31,10 @@ export class PanelAdminComponent implements OnInit {
       console.log(JSON.stringify(data));
       this.circuitos = data;
       this.circuitoActual = this.circuitos[0];
+      this.reservasService.getReservas(data[0].id_circuito).subscribe(data => {
+        this.reservas = data;
+        console.log(JSON.stringify(data));
+      });
       console.log(JSON.stringify(this.circuitos));
     })
   }
@@ -31,6 +42,7 @@ export class PanelAdminComponent implements OnInit {
   cambiarCircuito(circuito: string) {
     console.log(circuito);
     this.circuitoActual = this.circuitos[parseInt(circuito)];
+    this.obtenerReseras();
   }
 
   insertarSesion() {

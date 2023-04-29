@@ -33,4 +33,10 @@ export class ReservasService {
     }
     return this.httpClient.post<any>("http://localhost:5000/api/reservas", body, {"headers": headers});
   }
+
+  /*
+  public deleteReserva(token: string, idReserva: number): Observable<any> {
+
+  }
+  */
 }

@@ -16,8 +16,8 @@
         [alt]="circuitoActual.nombre">
     </div>
   </div>
-  <form class="row mt-3" #sesionForm="ngForm" (ngSubmit)="insertarSesion()">
-    <div class="col-md-6">
+  <form class="row mt-3 bordes rounded" #sesionForm="ngForm" (ngSubmit)="insertarSesion()">
+    <div class="col-md-6 mt-3">
       <label for="nombre_sesion" class="form-label">Nombre de la sesion</label>
       <input type="text" class="form-control" id="nombre_sesion" [(ngModel)]="circuitoInsertar.nombre"
         name="nombre_sesion" #nombre_sesion="ngModel" required>
@@ -25,7 +25,7 @@
           <p class="form-text" *ngIf="nombre_sesion.errors?.['required']">Campo requerido</p>
         </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 mt-3">
       <label for="fecha" class="form-label">Fecha</label>
       <input type="date" class="form-control" id="fecha" [(ngModel)]="circuitoInsertar.fecha"
         name="fecha" #fecha="ngModel" required>
@@ -33,7 +33,7 @@
           <p class="form-text" *ngIf="fecha.errors?.['required']">Campo requerido</p>
         </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 mt-3">
       <label for="hora_inicio" class="form-label">Hora de inicio</label>
       <input type="time" class="form-control" id="hora_inicio" [(ngModel)]="circuitoInsertar.horaInicio"
         name="hora_inicio" #hora_inicio="ngModel" required>
@@ -41,7 +41,7 @@
           <p class="form-text" *ngIf="hora_inicio.errors?.['required']">Campo requerido</p>
         </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 mt-3">
       <label for="hora_fin" class="form-label">Hora de fin</label>
       <input type="time" class="form-control" id="hora_fin" [(ngModel)]="circuitoInsertar.horaFin"
         name="hora_fin" #hora_fin="ngModel" required>
@@ -49,8 +49,27 @@
           <p class="form-text" *ngIf="hora_fin.errors?.['required']">Campo requerido</p>
         </div>
     </div>
-    <div class="col">
+    <div class="col mt-3 mb-3">
       <button class="btn btn-primary" [disabled]="!sesionForm.form.valid">INSERTAR SESION</button>
     </div>
   </form>
+  <div class="row mt-3" *ngFor="let reserva of reservas[1]; index as i">
+    <div class="col-md-2">
+      <p class="text-center">{{reserva.titulo}}</p>
+    </div>
+    <div class="col-md-2">
+      <p class="text-center">{{reserva.fecha}}</p>
+    </div>
+    <div class="col-md-2">
+      <p class="text-center">{{reserva.hora_inicio}}-{{reserva.hora_fin}}</p>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+      <button class="btn btn-primary" type="button">VER RESERVAS</button>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+      <button class="btn btn-danger" type="button">ELIMINAR</button>
+    </div>
+  </div>
 </div>
