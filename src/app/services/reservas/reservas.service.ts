@@ -34,9 +34,8 @@ export class ReservasService {
     return this.httpClient.post<any>("http://localhost:5000/api/reservas", body, {"headers": headers});
   }
 
-  /*
   public deleteReserva(token: string, idReserva: number): Observable<any> {
-
+    const headers = new HttpHeaders().set("authentication", token);
+    return this.httpClient.delete<any>(`http://localhost:5000/api/reservas/${idReserva}`, {"headers": headers});
   }
-  */
 }

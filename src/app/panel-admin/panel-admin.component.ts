@@ -47,7 +47,13 @@ export class PanelAdminComponent implements OnInit {
 
   insertarSesion() {
     this.reservasService.newReserva(this.google.getToken(), this.circuitoActual.id_circuito, this.circuitoInsertar.nombre , this.circuitoInsertar.fecha, this.circuitoInsertar.horaInicio, this.circuitoInsertar.horaFin).subscribe(data => {
-      console.log(JSON.stringify(data));
+      this.obtenerReseras();
+    })
+  }
+
+  eliminarSesion(id: number) {
+    this.reservasService.deleteReserva(this.google.getToken(), id).subscribe(data => {
+      this.obtenerReseras();
     })
   }
 
