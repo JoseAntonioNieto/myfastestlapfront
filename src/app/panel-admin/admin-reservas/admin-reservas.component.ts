@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GoogleApiService } from 'src/app/services/google-api.service';
+import { ReservasUsuarioService } from 'src/app/services/reservas_usuario/reservas-usuario.service';
 import { VehiculosService } from 'src/app/services/vehiculos/vehiculos.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class AdminReservasComponent implements OnInit {
   vehiculos: any;
   private sub: any;
 
-  constructor(private route: ActivatedRoute, public readonly google: GoogleApiService, private vehiculosService: VehiculosService) {
+  constructor(private route: ActivatedRoute, public readonly google: GoogleApiService, private vehiculosService: VehiculosService, private reservasUsuarioService: ReservasUsuarioService) {
     google.userProfileSubject.subscribe()
   }
 
@@ -21,6 +22,13 @@ export class AdminReservasComponent implements OnInit {
     this.vehiculosService.getVehiculosReserva(this.google.getToken(), this.id).subscribe(data => {
       this.vehiculos = data;
       console.log(data);
+    })
+  }
+
+  eliminarReserva(matricula: string) {
+    this.reservasUsuarioService.deleteReservaUsuarioAdmin(this.google.getToken(), this.id, matricula).subscribe(data => {
+      console.log(data);
+      this.obtenerVehiculos();
     })
   }
 

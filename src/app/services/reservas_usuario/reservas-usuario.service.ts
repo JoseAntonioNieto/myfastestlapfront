@@ -18,4 +18,9 @@ export class ReservasUsuarioService {
     const headers = new HttpHeaders().set("authentication", token);
     return this.httpClient.delete<any>(`http://localhost:5000/api/usuario/reservas/${idReserva}`, {"headers": headers});
   }
+
+  deleteReservaUsuarioAdmin(token: any, idReserva: number, matricula: string): Observable<any> {
+    const headers = new HttpHeaders().set("authentication", token);
+    return this.httpClient.delete<any>(`http://localhost:5000/api/admin/reservas/${matricula}/${idReserva}`, {"headers": headers});
+  }
 }
