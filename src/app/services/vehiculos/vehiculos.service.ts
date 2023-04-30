@@ -29,4 +29,9 @@ export class VehiculosService {
     const headers = new HttpHeaders().set("authentication", token);
     return this.httpClient.delete<any>(`http://localhost:5000/api/vehiculos/${matricula}`, {"headers": headers});
   }
+
+  getVehiculosReserva(token: any, idReserva: number) {
+    const headers = new HttpHeaders().set("authentication", token);
+    return this.httpClient.get<any>(`http://localhost:5000/api/vehiculos/reservas/${idReserva}`, {"headers": headers});
+  }
 }
