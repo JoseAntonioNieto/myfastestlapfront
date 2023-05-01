@@ -10,13 +10,13 @@
       </select>
     </div>
   </div>
-  <div class="row">
+  <div class="row mt-3">
     <div class="col">
       <img [src]="'/assets/' + circuitoActual.nombre.toLowerCase() + '.jpg'" class="img-fluid"
         [alt]="circuitoActual.nombre">
     </div>
   </div>
-  <form class="row mt-3 bordes rounded" #sesionForm="ngForm" (ngSubmit)="insertarSesion()">
+  <form class="row mt-3 bordes rounded mx-1" #sesionForm="ngForm" (ngSubmit)="insertarSesion()">
     <div class="col-md-6 mt-3">
       <label for="nombre_sesion" class="form-label">Nombre de la sesion</label>
       <input type="text" class="form-control" id="nombre_sesion" [(ngModel)]="circuitoInsertar.nombre"
@@ -53,23 +53,33 @@
       <button class="btn btn-primary" [disabled]="!sesionForm.form.valid">INSERTAR SESION</button>
     </div>
   </form>
-  <div class="row mt-3" *ngFor="let reserva of reservas[1]; index as i">
-    <div class="col-md-2">
+  <div class="row mt-3 bordes rounded mx-1" *ngFor="let reserva of reservas[1]; index as i">
+    <div class="col-md-2 mt-3">
       <p class="text-center">{{reserva.titulo}}</p>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-2 mt-3">
       <p class="text-center">{{reserva.fecha}}</p>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-2 mt-3">
       <p class="text-center">{{reserva.hora_inicio}}-{{reserva.hora_fin}}</p>
     </div>
     <div class="col-md-1"></div>
-    <div class="col-md-2">
-      <button class="btn btn-primary" type="button" [routerLink]="['/admin/reservas', reserva.id_reserva]">VER RESERVAS</button>
+    <div class="col-md-2 mb-1 mt-1">
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+          <button class="btn btn-primary" type="button" [routerLink]="['/admin/reservas', reserva.id_reserva]">VER RESERVAS</button>
+        </div>
+      </div>
     </div>
     <div class="col-md-1"></div>
-    <div class="col-md-2">
-      <button class="btn btn-danger" type="button" (click)="eliminarSesion(reserva.id_reserva)">ELIMINAR</button>
+    <div class="col-md-2 mb-1 mt-1">
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+          <button class="btn btn-danger" type="button" (click)="eliminarSesion(reserva.id_reserva)">ELIMINAR</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
