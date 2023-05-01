@@ -60,11 +60,12 @@ export class MenuComponent {
     this.vehiculoService.deleteVehiculos(this.google.getToken(), matricula).subscribe(
       (data) => {
         respuesta =  data;
+        this.obtenerVehiculos();
       }
     );
 
     if (respuesta.eliminado == true) {
-      this.allVeh.splice(posicion, 1);
+      // this.allVeh.splice(posicion, 1);
       this.obtenerVehiculos();
     }
   }
