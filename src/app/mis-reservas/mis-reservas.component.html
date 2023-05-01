@@ -2,7 +2,7 @@
   <div class="row">
     <h1 class="text-center">MIS RESERVAS</h1>
   </div>
-  <div class="row">
+  <div class="row gx-1">
     <div class="card col-md-4 mt-3" *ngFor="let reserva of reservas; index as i">
       <img class="card-img-top" [src]="'/assets/' + reserva[1].circuito.toLowerCase() + '.jpg'" alt="Card image cap">
       <div class="card-body">
@@ -16,8 +16,8 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-4"></div>
-          <div class="col-md-3">
+          <div class="col-4"></div>
+          <div class="col-3">
             <a class="btn btn-danger" (click)="eliminarReserva(reserva[0].id_reserva, i)">ELIMINAR</a>
           </div>
         </div>
