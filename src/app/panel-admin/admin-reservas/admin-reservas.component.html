@@ -8,7 +8,7 @@
   <div class="row">
     <h1 class="text-center">VEHICULOS</h1>
   </div>
-  <div class="row mt-3 bordes rounded" *ngFor="let vehiculo of vehiculos">
+  <div class="row mt-3 bordes rounded mx-1" *ngFor="let vehiculo of vehiculos">
     <div class="col-md-3 mt-2">
       <p class="text-center">{{vehiculo.matricula}}</p>
     </div>
@@ -18,8 +18,13 @@
     <div class="col-md-3 mt-2">
       <p class="text-center">{{vehiculo.dni_titular}}</p>
     </div>
-    <div class="col-md-3 mt-1">
-      <button class="btn btn-danger" type="button" (click)="eliminarReserva(vehiculo.matricula)">ELIMINAR</button>
+    <div class="col-md-3 mt-1 mb-1">
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+          <button class="btn btn-danger" type="button" (click)="eliminarReserva(vehiculo.matricula)">ELIMINAR</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
