@@ -95,8 +95,13 @@
         <div class="col">
           <p>{{vehiculoArr.matricula}}</p>
         </div>
-        <div class="col">
-          <button type="button" class="btn btn-danger" (click)="eliminarVehiculo(vehiculoArr.matricula, i)">Eliminar</button>
+        <div class="col mb-3">
+          <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+              <button type="button" class="btn btn-danger" (click)="eliminarVehiculo(vehiculoArr.matricula, i)">Eliminar</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
