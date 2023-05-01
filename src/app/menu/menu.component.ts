@@ -23,6 +23,9 @@ export class MenuComponent {
   userInfo: any = null;
   rol_usuario: any = null;
   public vehiculo: Vehiculo;
+  vehiculoInsertado: any = {
+    insertado: ""
+  };
   allVeh?:any = [];
 
   constructor(public readonly google: GoogleApiService,private vehiculoService: VehiculosService, private user_data: UserDataService, private modalService: NgbModal) {
@@ -32,18 +35,6 @@ export class MenuComponent {
     })
   }
 
-  eliminarVehiculo(matricula: String, posicion: Number) {
-    let respuesta: any;
-    this.vehiculoService.deleteVehiculos(this.google.getToken(), matricula).subscribe(
-      (data) => {
-        respuesta =  data;
-      }
-    );
-
-    if (respuesta.eliminado == true) {
-      this.allVeh.splice(posicion, 1);
-    }
-  }
 
   obtenerVehiculos() {
     this.vehiculoService.getVehiculos(this.google.getToken()).subscribe(
@@ -57,9 +48,25 @@ export class MenuComponent {
     this.vehiculoService.postVehiculos(this.google.getToken(), this.vehiculo.matricula, this.vehiculo.nombre_conductor, this.vehiculo.dni_titular, this.vehiculo.nombre_titular)
     .subscribe(
       (data) => {
+        this.vehiculoInsertado = data;
         this.allVeh.push(data);
+        this.obtenerVehiculos();
       }
     )
+  }
+
+  eliminarVehiculo(matricula: String, posicion: Number) {
+    let respuesta: any;
+    this.vehiculoService.deleteVehiculos(this.google.getToken(), matricula).subscribe(
+      (data) => {
+        respuesta =  data;
+      }
+    );
+
+    if (respuesta.eliminado == true) {
+      this.allVeh.splice(posicion, 1);
+      this.obtenerVehiculos();
+    }
   }
 
   open(content: any) {

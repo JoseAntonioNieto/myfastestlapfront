@@ -50,6 +50,8 @@
     <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
   </div>
   <div class="modal-body" *ngIf="isLoggedIn()">
+    <ngb-alert type="success" *ngIf="vehiculoInsertado.insertado == 'si'">Vehiculo insertado</ngb-alert>
+    <ngb-alert type="danger" *ngIf="vehiculoInsertado.insertado == 'no'">El vehiculo ya existe en la base de datos</ngb-alert>
     <form (ngSubmit)="insertarVehiculo()" #vehiculoForm="ngForm">
       <div class="mb-3">
         <label for="matricula" class="form-label">Matricula</label>
