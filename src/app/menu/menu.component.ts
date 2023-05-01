@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { NgbDropdownModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Vehiculo } from '../clases/vehiculo';
 import { VehiculosService } from '../services/vehiculos/vehiculos.service';
+import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -16,6 +18,7 @@ import { VehiculosService } from '../services/vehiculos/vehiculos.service';
 export class MenuComponent {
   faUser = faUser;
   fas = faS;
+  isMenuCollapsed = true;
 
   userInfo: any = null;
   rol_usuario: any = null;
