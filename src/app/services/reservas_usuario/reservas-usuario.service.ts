@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
+import { enviroment } from '../../enviroment/enviroment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,16 +12,16 @@ export class ReservasUsuarioService {
 
   public getReservasUsuario(token: any): Observable<any> {
     const headers = new HttpHeaders().set("authentication", token);
-    return this.httpClient.get<any>("http://localhost:5000/api/usuario/reservas", {"headers": headers});
+    return this.httpClient.get<any>(`${enviroment.api_url}api/usuario/reservas`, {"headers": headers});
   }
 
   public deleteReservaUsuario(token: any, idReserva: number) {
     const headers = new HttpHeaders().set("authentication", token);
-    return this.httpClient.delete<any>(`http://localhost:5000/api/usuario/reservas/${idReserva}`, {"headers": headers});
+    return this.httpClient.delete<any>(`${enviroment.api_url}api/usuario/reservas/${idReserva}`, {"headers": headers});
   }
 
   deleteReservaUsuarioAdmin(token: any, idReserva: number, matricula: string): Observable<any> {
     const headers = new HttpHeaders().set("authentication", token);
-    return this.httpClient.delete<any>(`http://localhost:5000/api/admin/reservas/${matricula}/${idReserva}`, {"headers": headers});
+    return this.httpClient.delete<any>(`${enviroment.api_url}api/admin/reservas/${matricula}/${idReserva}`, {"headers": headers});
   }
 }

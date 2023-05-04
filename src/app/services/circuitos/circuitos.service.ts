@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
+import { enviroment } from '../../enviroment/enviroment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,15 +16,15 @@ export class CircuitosService {
       pais: pais,
       nombre: nombre
     }
-    return this.httpClient.post<any>("http://localhost:5000/api/getCircuitos", body);
+    return this.httpClient.post<any>(`${enviroment.api_url}api/getCircuitos`, body);
   }
 
   public getCircuito(idCircuito: number): Observable<any> {
-    return this.httpClient.get<any>(`http://localhost:5000/api/circuito/${idCircuito}`);
+    return this.httpClient.get<any>(`${enviroment.api_url}api/circuito/${idCircuito}`);
   }
 
   public getCircuitosUsuario(token: string) {
     const headers = new HttpHeaders().set("authentication", token);
-    return this.httpClient.get<any>("http://localhost:5000/api/circuitosUsuario", {"headers": headers});
+    return this.httpClient.get<any>(`${enviroment.api_url}api/circuitosUsuario`, {"headers": headers});
   }
 }
